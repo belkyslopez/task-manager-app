@@ -64,6 +64,8 @@ export class TaskService {
     }
   }
 
-
+  setTasks(tasks: TaskItem[]): void {
+    this.tasksSubject.next(tasks);
+  }
 
 }

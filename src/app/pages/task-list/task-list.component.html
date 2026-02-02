@@ -12,12 +12,13 @@
 
 <ion-content class="ion-padding bg-gray-100 dark:bg-gray-900">
 
-  <ng-container *ngIf="tasks$ | async as tasks; else loading">
+  <ng-container *ngIf="tasks$ | async as tasks; else loading ">
     <div class="space-y-3">
       <app-task-item
         *ngFor="let task of tasks"
         [task]="task"
-        (toggle)="onToggleStatus($event)">
+        (toggle)="onToggleStatus($event)"
+        (click)="openTaskDetail(task.id)">
       </app-task-item>
     </div>
   </ng-container>

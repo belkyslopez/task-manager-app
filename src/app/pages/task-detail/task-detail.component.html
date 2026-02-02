@@ -1,0 +1,37 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalle de Tarea</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card *ngIf="task">
+    <ion-card-header>
+      <ion-card-title>{{ task.title }}</ion-card-title>
+      <ion-card-subtitle>ID: {{ task.id }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>ID Usuario:</strong> {{ task.id }}</p>
+
+      <ion-chip
+        [color]="task.completed ? 'success' : 'warning'">
+        {{ task.completed ? 'Completada' : 'Pendiente' }}
+      </ion-chip>
+
+      <ion-button
+        expand="block"
+        class="ion-margin-top"
+        (click)="toggleStatus()"
+        [color]="task.completed ? 'medium' : 'success'">
+        Marcar como {{ task.completed ? 'Pendiente' : 'Completada' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

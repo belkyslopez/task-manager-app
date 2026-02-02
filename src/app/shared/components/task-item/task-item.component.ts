@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonCard, IonToggle, IonCheckbox  } from '@ionic/angular/standalone';
+import { IonCard, IonToggle, IonCheckbox} from '@ionic/angular/standalone';
 import { TaskItem } from 'src/app/core/models/task.model';
 import { NgClass } from '@angular/common';
 
@@ -12,7 +12,7 @@ interface Task {
 @Component({
   selector: 'app-task-item',
   standalone: true,
-  imports: [CommonModule, IonCard, IonToggle,  NgClass, IonCheckbox],
+  imports: [CommonModule, IonCard, IonToggle, NgClass, IonCheckbox],
   templateUrl: './task-item.component.html',
   styleUrls: ['./task-item.component.scss'],
 })
