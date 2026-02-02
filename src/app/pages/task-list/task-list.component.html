@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Listado de Tareas</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-title size="small">
+      Gestiona y visualiza el estado de todas tus tareas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bg-gray-100 dark:bg-gray-900">
+
+  <ng-container *ngIf="tasks$ | async as tasks; else loading">
+    <div class="space-y-3">
+      <app-task-item
+        *ngFor="let task of tasks"
+        [task]="task"
+        (toggle)="onToggleStatus($event)">
+      </app-task-item>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <ion-spinner class="block mx-auto mt-10"></ion-spinner>
+  </ng-template>
+
+</ion-content>
+
