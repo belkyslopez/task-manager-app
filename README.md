@@ -61,6 +61,8 @@ Ionicons – Iconografía
 
 # 🛠️ Mejoras a implementar con más tiempo
 
+✏️🗑️ Editar y Eliminar tareas
+
 ✅ Filtros por estado (completadas / pendientes)
 
 ✅ Búsqueda de tareas por título
@@ -70,3 +72,4 @@ Ionicons – Iconografía
 🧪 Pruebas unitarias 
 
 📱 Mejoras de accesibilidad
+
