@@ -1,0 +1,21 @@
+.card {
+  padding: 15px;
+}
+
+.footer-card {
+  text-align: right;
+}
+
+.body-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    b{margin-right: 5px;}
+  }
+
+  ion-checkbox {
+    margin: 14px 5px;
+  }
+}

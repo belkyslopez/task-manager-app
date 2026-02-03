@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva tarea</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding  bg-gray-100 dark:bg-gray-900">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+    <ion-item lines="full">
+      <ion-label position="stacked">Título *</ion-label>
+      <ion-input
+        formControlName="title"
+        placeholder="Ej: Comprar insumos"
+        [counter]="true"
+        maxlength="60">
+      </ion-input>
+    </ion-item>
+
+    <ion-note color="danger" *ngIf="isInvalid('title')">
+      El título es obligatorio (mín. 3 caracteres).
+    </ion-note>
+
+    <ion-item lines="full">
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-textarea
+        formControlName="description"
+        placeholder="Opcional…"
+        autoGrow="true"
+        maxlength="200">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="taskDate"
+          presentation="date"
+          [value]="form.value.date">
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+    <ion-button
+      type="submit"
+      expand="block"
+      [disabled]="form.invalid || isSubmitting">
+      <ion-spinner *ngIf="isSubmitting" name="crescent" class="mr-2"></ion-spinner>
+      Crear tarea
+    </ion-button>
+
+  </form>
+</ion-content>

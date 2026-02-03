@@ -1,7 +1,8 @@
-
 <ion-header>
   <ion-toolbar>
-    <ion-title>Detalle de Tarea</ion-title>
+    <ion-title>
+      <p>Detalle de Tarea</p>
+    </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="close()">Cerrar</ion-button>
     </ion-buttons>
@@ -9,29 +10,33 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <ion-card *ngIf="task">
     <ion-card-header>
-      <ion-card-title>{{ task.title }}</ion-card-title>
-      <ion-card-subtitle>ID: {{ task.id }}</ion-card-subtitle>
+      <ion-card-title>{{ task.title | capitalize }}</ion-card-title>
+
+      <div class="subtitle">
+        <b>#{{ task.id }}</b>
+
+        <ion-chip [color]="task.completed ? 'success' : 'warning'">
+          {{ task.completed ? "Completada" : "Pendiente" }}
+        </ion-chip>
+      </div>
     </ion-card-header>
-
+      <br>
     <ion-card-content>
-      <p><strong>ID Usuario:</strong> {{ task.id }}</p>
-
-      <ion-chip
-        [color]="task.completed ? 'success' : 'warning'">
-        {{ task.completed ? 'Completada' : 'Pendiente' }}
-      </ion-chip>
+      <div class="chip-order">
+        <ion-chip>ID Usuario: {{ task.userId }} </ion-chip>
+        <ion-chip>Creada el 02 Feb. 2026 </ion-chip>
+      </div>
 
       <ion-button
         expand="block"
-        class="ion-margin-top"
+        class=""
         (click)="toggleStatus()"
-        [color]="task.completed ? 'medium' : 'success'">
-        Marcar como {{ task.completed ? 'Pendiente' : 'Completada' }}
+        [ngClass]="task.completed ? 'gray-custom' : 'green-custom'"
+      >
+        Marcar como {{ task.completed ? "Pendiente" : "Completada" }}
       </ion-button>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

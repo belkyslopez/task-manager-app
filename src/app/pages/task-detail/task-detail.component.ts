@@ -3,12 +3,13 @@ import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { TaskItem } from 'src/app/core/models/task.model';
 import { TaskService } from 'src/app/core/services/task.service';
+import { CapitalizePipe } from "../../shared/pipe/capitalize-pipe";
 
 
 @Component({
   selector: 'app-task-detail',
   standalone: true,
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, CapitalizePipe],
   templateUrl: './task-detail.component.html',
   styleUrls: ['./task-detail.component.scss'],
 })
@@ -27,6 +28,7 @@ export class TaskDetailComponent  implements OnInit {
    ionViewWillEnter(): void {
     this.task = this.taskService.getTaskById(this.taskId);
   }
+
 
   toggleStatus(): void {
     if (!this.task) return;
