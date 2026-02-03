@@ -13,19 +13,22 @@ Permite:
 ## 🚀 Pasos para correr el proyecto
 
 ### 1. Clonar el repositorio
+
+
 ```bash
-git clone https://github.com/belkyslopez/task-manager-app.git
+git clone https://github.com/belkyslopez/task-manager-app.
 cd task-manager-app
+```
 
 ### 2. ** Instalar dependencias **
 ```bash
 npm install
-
+```
 ### 3. ** Ejecutar en entorno de desarrollo**
 ```bash
 ionic serve
-
-# ✅ ** Decisiones técnicas **
+```
+# ✅  Decisiones técnicas 
 
 Se utilizó Ionic con Angular Standalone Components para simplificar la arquitectura.
 
@@ -41,9 +44,10 @@ Separación clara de responsabilidades:
  para lógica de negocio y consumo de API
 
 ## Consumo de API pública para obtener tareas:
+```bash
 https://jsonplaceholder.typicode.com/todos
-
-# 📦 ** Librerías utilizadas**
+```
+# 📦  Librerías utilizadas
 
 Ionic Framework – Componentes UI mobile
 
@@ -55,7 +59,7 @@ SCSS – Estilos personalizados
 
 Ionicons – Iconografía
 
-# 🛠️ ** Mejoras a implementar con más tiempo**
+# 🛠️ Mejoras a implementar con más tiempo
 
 ✅ Filtros por estado (completadas / pendientes)
 
