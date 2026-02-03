@@ -20,17 +20,19 @@ export class TaskListComponent  implements OnInit {
 
    tasks$!: Observable<TaskItem[]>;
    isDark: boolean = false;
+   private readonly THEME_KEY = 'theme';
    allTasks: TaskItem[] = [];
    visibleTasks: TaskItem[] = [];
    cursor = 0;
    allLoaded: boolean = false;
    sub?: Subscription;
+   pageSize: number = 20;
 
   constructor(
     private readonly modalCtrl: ModalController,
     private readonly themeService: ThemeService,
     private readonly taskService: TaskService,
-    ) { this.isDark = this.themeService.getDarkModeStatus(); }
+    ) { this.initTheme(); }
 
   ngOnInit() {
      this.tasks$ = this.taskService.tasks$;
@@ -94,6 +96,23 @@ export class TaskListComponent  implements OnInit {
 
   toggleTheme(): void {
     this.isDark = !this.isDark;
-    this.themeService.setDarkMode(this.isDark);
+    this.applyTheme(this.isDark);
+    localStorage.setItem(this.THEME_KEY, this.isDark ? 'dark' : 'light');
+  }
+
+  private initTheme(): void {
+    const saved = localStorage.getItem(this.THEME_KEY);
+
+    if (saved === 'dark' || saved === 'light') {
+      this.isDark = saved === 'dark';
+      this.applyTheme(this.isDark);
+      return;
+    }
+    this.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.applyTheme(this.isDark);
+  }
+
+  private applyTheme(dark: boolean): void {
+    document.body.classList.toggle('dark', dark);
   }
 }

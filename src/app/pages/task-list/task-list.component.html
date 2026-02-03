@@ -3,7 +3,7 @@
     <ion-title>Listado de Tareas</ion-title>
 
     <ion-buttons slot="end" >
-      <ion-button (click)="toggleTheme()" (keydown.enter)="toggleTheme()">
+      <ion-button (click)="toggleTheme()"  aria-label="Cambiar tema">
         <ion-icon
           slot="icon-only"
           [name]="isDark ? 'moon' : 'sunny'"
